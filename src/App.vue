@@ -1,33 +1,17 @@
-<script>
+<script setup>
+import { ref } from "vue";
 import Nav from "./components/Nav.vue";
 
-export default {
-  data() {
-    return {
-      searchTerm: "",
-      books: [],
-    };
-  },
-  components: {
-    Nav,
-  },
-  methods: {
-    async searchBooks() {
-      try {
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.searchTerm}`);
-        const data = await response.json();
-        this.books = data.items || [];
-        console.log(data.items);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    },
-  },
-};
+const searchTerm = ref("");
+const books = ref([]);
+
+function setBooks(foundBooks) {
+  books.value = foundBooks;
+}
 </script>
 
 <template>
-  <Nav />
+  <Nav @booksFound="setBooks" />
   <div>
     <h2 class="text-2xl">Book Search</h2>
     <input v-model="searchTerm" type="text" placeholder="Enter book name" />
