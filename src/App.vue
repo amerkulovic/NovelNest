@@ -2,8 +2,8 @@
 import { ref } from "vue";
 import Nav from "./components/Nav.vue";
 import HomeScreen from "./components/HomeScreen.vue";
+import Footer from "./components/Footer.vue";
 
-// const searchTerm = ref("");
 const books = ref([]);
 
 function setBooks(foundBooks) {
@@ -23,4 +23,5 @@ function setBooks(foundBooks) {
       </ul>
     </div>
   </div>
+  <Footer />
 </template>

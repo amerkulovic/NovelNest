@@ -3,6 +3,7 @@ import photo from "../assets/book-photo.jpg";
 
 import { ref } from "vue";
 import owlSvg from "../assets/Owl.svg";
+import HomeQuote from "./HomeQuote.vue";
 
 const emit = defineEmits(["booksFound"]);
 const searchTerm = ref("");
@@ -24,7 +25,7 @@ const searchBooks = async () => {
   <div class="flex justify-around items-center bg-orange-200 pt-5 pb-10">
     <div class="relative">
       <div class="bg-amber-900 w-[450px] h-[550px] absolute top-5 right-5 z-10"></div>
-      <img :src="photo" class="relative w-[450px] h-[550px] z-20 border-4 border-amber-900 shadow-lg shadow-amber-700" />
+      <img :src="photo" class="relative w-[450px] h-[550px] z-20 border-4 border-amber-900 shadow-xl shadow-amber-800" />
     </div>
     <div>
       <section class="w-[500px] text-3xl flex flex-col items-end">
@@ -39,4 +40,5 @@ const searchBooks = async () => {
       </div>
     </div>
   </div>
+  <HomeQuote />
 </template>
