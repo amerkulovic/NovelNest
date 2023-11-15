@@ -1,26 +1,25 @@
 <script setup>
 import { ref } from "vue";
 import Nav from "./components/Nav.vue";
+import HomeScreen from "./components/HomeScreen.vue";
 
 const searchTerm = ref("");
 const books = ref([]);
 
 function setBooks(foundBooks) {
   books.value = foundBooks;
+  console.log(books);
 }
 </script>
 
 <template>
   <Nav @booksFound="setBooks" />
+  <HomeScreen />
   <div>
-    <h2 class="text-2xl">Book Search</h2>
-    <input v-model="searchTerm" type="text" placeholder="Enter book name" />
-    <button @click="searchBooks">Search</button>
-
     <div v-if="books.length">
       <h3>Search Results</h3>
-      <ul>
-        <li v-for="book in books" :key="book.id">{{ book.volumeInfo.title }}</li>
+      <ul class="flex flex-row justify-evenly">
+        <li v-for="book in books" :key="book.id"><img :src="book.volumeInfo.imageLinks.thumbnail" alt="Book Thumbnail" /></li>
       </ul>
     </div>
   </div>
