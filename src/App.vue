@@ -3,7 +3,7 @@ import { ref } from "vue";
 import Nav from "./components/Nav.vue";
 import HomeScreen from "./components/HomeScreen.vue";
 
-const searchTerm = ref("");
+// const searchTerm = ref("");
 const books = ref([]);
 
 function setBooks(foundBooks) {
@@ -14,7 +14,7 @@ function setBooks(foundBooks) {
 
 <template>
   <Nav @booksFound="setBooks" />
-  <HomeScreen />
+  <HomeScreen @booksFound="setBooks" />
   <div>
     <div v-if="books.length">
       <h3>Search Results</h3>
