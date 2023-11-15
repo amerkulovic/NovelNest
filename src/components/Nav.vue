@@ -23,7 +23,10 @@ const searchBooks = async () => {
     <img :src="owlSvg" class="w-[60px]" />
     <ul class="flex flex-row justify-end w-1/3">
       <li class="mx-2">Bookmarks</li>
-      <li><input v-model="searchTerm" /><button @click="searchBooks">Search</button></li>
+      <li>
+        <input v-model="searchTerm" />
+        <button @click="searchBooks">Search</button>
+      </li>
     </ul>
   </section>
 </template>
