@@ -3,7 +3,7 @@ import photo from "../assets/book-photo.jpg";
 
 import { ref } from "vue";
 import owlSvg from "../assets/Owl.svg";
-import HomeQuote from "./HomeQuote.vue";
+import HomeQuote from "../components/HomeQuote.vue";
 
 const emit = defineEmits(["booksFound"]);
 const searchTerm = ref("");

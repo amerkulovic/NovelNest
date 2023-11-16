@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from "vue";
 import Nav from "./components/Nav.vue";
-import HomeScreen from "./components/HomeScreen.vue";
+import HomeScreen from "./pages/HomeScreen.vue";
 import BookCard from "./components/BookCard.vue";
 import Footer from "./components/Footer.vue";
 import { useRoute } from "vue-router";
