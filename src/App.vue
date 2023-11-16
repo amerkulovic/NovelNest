@@ -14,7 +14,7 @@ function setBooks(foundBooks) {
 
 <template>
   <Nav @booksFound="setBooks" />
-  <RouterView/>
+  <RouterView @booksFound="setBooks" />
   <!-- <HomeScreen @booksFound="setBooks" /> -->
   <div>
     <div v-if="books.length">
