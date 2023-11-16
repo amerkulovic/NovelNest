@@ -23,14 +23,14 @@ const searchBooks = async () => {
 
 <template>
   <div class="flex justify-around items-center bg-orange-200 pt-5 pb-10">
-    <div class="relative">
+    <div class="relative max-lg:hidden">
       <div class="bg-amber-900 w-[450px] h-[550px] absolute top-5 right-5 z-10"></div>
       <img :src="photo" class="relative w-[450px] h-[550px] z-20 border-4 border-amber-900 shadow-xl shadow-amber-800" />
     </div>
-    <div>
-      <section class="w-[500px] text-3xl flex flex-col items-end">
+    <div class="max-md:flex max-md:flex-col max-md:items-center">
+      <section class="w-[500px] max-md:w-5/6 text-3xl flex flex-col items-end">
         <p class="italic font-extralight pb-4">"The more that you read, the more things you will know. The more that you learn, the more places you'll go."</p>
-        <span class="font-bold mr-5">- Dr.Seuss</span>
+        <span class="font-bold mr-5 max-md:mr-0">- Dr.Seuss</span>
       </section>
       <div className="opacity-80 hover:opacity-100 flex items-center pt-20">
         <input className="h-20 w-full px-4 rounded-tl-xl rounded-bl-xl focus:outline-none text-2xl font-bold" placeholder="Find a Book!" v-model="searchTerm" />

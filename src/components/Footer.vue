@@ -4,13 +4,13 @@ import owlSvg from "../assets/Owl.svg";
 import library from "../assets/library.jpg";
 import papers from "../assets/papers.jpg";
 import bookStack from "../assets/book-stack.jpg";
-import bookShelf from "../assets/bookshelf.jpg"
+import bookShelf from "../assets/bookshelf.jpg";
 
 const pictureArray = ref([bookShelf, library, papers, bookStack]);
 </script>
 <template>
   <div class="flex flex-row flex-wrap">
-    <img v-for="(picture, index) in pictureArray" :key="index" class="w-1/4 h-1/3" :src="picture" />
+    <img v-for="(picture, index) in pictureArray" :key="index" class="w-1/4 h-1/3 max-sm:w-1/2" :src="picture" />
   </div>
   <footer class="flex items-center justify-between pt-5 px-10">
     <section class="pt-10">
