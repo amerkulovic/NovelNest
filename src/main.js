@@ -6,7 +6,7 @@ import App from "./App.vue";
 import "./styles/index.css";
 
 const routes = [
-    {path: '/', component: HomeScreen},
+    // {path: '/', component: HomeScreen},
 ]
 
 const router = createRouter({
