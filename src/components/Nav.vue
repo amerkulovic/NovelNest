@@ -29,7 +29,9 @@ const searchBooks = async () => {
 </script>
 <template>
   <section class="flex flex-row justify-between items-center p-5 bg-orange-200">
-    <h1 class="text-5xl font-extrabold w-1/3">Novel<span class="font-extralight">Nest</span></h1>
+    <h1 class="text-5xl font-extrabold w-1/3">
+      <router-link to="/">Novel<span class="font-extralight">Nest</span></router-link>
+    </h1>
     <img :src="owlSvg" class="w-[60px] max-md:hidden" />
     <ul class="flex flex-row justify-end items-center w-1/3">
       <li class="mx-2"><img :src="bookSvg" class="h-10 w-10" /></li>

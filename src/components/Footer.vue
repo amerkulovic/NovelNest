@@ -16,7 +16,12 @@ const pictureArray = ref([bookShelf, library, papers, bookStack]);
     <section class="pt-10">
       <h1 class="font-bold text-5xl mb-5">Novel<span class="font-extralight">Nest</span></h1>
       <ul class="font-thin text-xl pb-10">
-        <li>Home</li>
+        <router-link to="/">
+          <li>Home</li>
+        </router-link>
+        <router-link to="/about">
+          <li class="pt-3">About</li>
+        </router-link>
         <li class="pt-3">Bookmarks</li>
       </ul>
     </section>
