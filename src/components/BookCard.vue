@@ -8,8 +8,8 @@ const props = defineProps(["image", "desc", "title", "author"]);
     </div>
     <section class="flex flex-col justify-between w-4/6 my-2">
       <section>
-        <h2 class="text-2xl font-bold mb-3">{{ title }}</h2>
-        <p class="font-light h-[200px] overflow-hidden" style="overflow-y: auto">{{ desc }}</p>
+        <h2 class="text-3xl font-bold mb-3">{{ title }}</h2>
+        <p class="font-extralight h-[200px] overflow-hidden" style="overflow-y: auto"><span class="font-bold">Summary: </span>{{ desc }}</p>
       </section>
       <section class="flex flex-row justify-between items-center mt-8">
         <p class="font-extralight italic">Written by {{ author[0] }}</p>
