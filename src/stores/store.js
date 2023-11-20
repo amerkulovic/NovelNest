@@ -7,5 +7,6 @@ export const pinia = createPinia();
 export const useMyStore = defineStore("myStore", {
   state: () => ({
     books: [],
+    selectedBook: {},
   }),
 });

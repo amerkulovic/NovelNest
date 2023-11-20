@@ -1,5 +1,11 @@
 <script setup>
-const props = defineProps(["image", "desc", "title", "author"]);
+import { useMyStore } from "../stores/store";
+const store = useMyStore();
+const props = defineProps(["image", "desc", "title", "author", "bookObject"]);
+
+const storeBookInfo = () => {
+  store.selectedBook = props.bookObject;
+};
 </script>
 <template>
   <div class="flex justify-evenly my-3 bg-orange-300 w-5/6 py-3">
@@ -13,7 +19,9 @@ const props = defineProps(["image", "desc", "title", "author"]);
       </section>
       <section class="flex flex-row justify-between items-center mt-8">
         <p class="font-extralight italic">Written by {{ author[0] }}</p>
-        <button class="p-3 bg-yellow-950 text-white font-bold">Read More</button>
+        <router-link to="/book">
+          <button class="p-3 bg-yellow-950 text-white font-bold" @click="storeBookInfo">Read More</button>
+        </router-link>
       </section>
     </section>
   </div>
