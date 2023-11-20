@@ -28,9 +28,3 @@ const display = () => {
     </div>
   </div>
 </template>
-<style>
-/* Add the following style to your component's style block */
-.z-0 {
-  z-index: 0;
-}
-</style>
