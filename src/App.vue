@@ -5,8 +5,10 @@ import HomeScreen from "./pages/HomeScreen.vue";
 import BookCard from "./components/BookCard.vue";
 import Footer from "./components/Footer.vue";
 import { useRoute } from "vue-router";
+import { useMyStore } from "./stores/store";
 
 const route = useRoute();
+const store = useMyStore();
 const isHomePage = ref(route.path === "/");
 console.log(isHomePage);
 
@@ -18,7 +20,7 @@ const books = ref([]);
 
 function setBooks(foundBooks) {
   books.value = foundBooks;
-  console.log(books);
+  console.log(store.books);
 }
 </script>
 
@@ -26,10 +28,5 @@ function setBooks(foundBooks) {
   <Nav @booksFound="setBooks" />
   <HomeScreen v-if="isHomePage" @booksFound="setBooks" />
   <RouterView />
-  <div>
-    <div class="flex flex-col items-center bg-orange-200" v-if="books.length">
-      <BookCard v-for="book in books" :key="book.volumeInfo.title" :image="book.volumeInfo.imageLinks.thumbnail" :title="book.volumeInfo.title" :desc="book.volumeInfo.description" :author="book.volumeInfo.authors" />
-    </div>
-  </div>
   <Footer />
 </template>
