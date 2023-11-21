@@ -9,13 +9,12 @@ export const useMyStore = defineStore("myStore", {
     books: [],
     selectedBook: {},
     bookmarks: [],
-    chosenBook: {}
   }),
   actions: {
     addBookmark(bookmark) {
       let bookmarkExists = false;
       for (let i = 0; i < this.bookmarks.length; i++) {
-        if (this.chosenBook.title === this.bookmarks[i].title) {
+        if (bookmark.title === this.bookmarks[i].title) {
           let index = this.bookmarks.indexOf(this.bookmarks[i]);
           this.bookmarks.splice(index, 1);
           bookmarkExists = true;

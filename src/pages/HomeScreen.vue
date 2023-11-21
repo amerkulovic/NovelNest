@@ -7,19 +7,26 @@ import { useRoute } from "vue-router";
 import owlSvg from "../assets/Owl.svg";
 import HomeQuote from "../components/HomeQuote.vue";
 
-const route = useRoute();
 const emit = defineEmits(["booksFound"]);
 const searchTerm = ref("");
-const books = ref([]);
 const store = useMyStore();
 
 const searchBooks = async () => {
   try {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm.value}`);
     const data = await response.json();
-    books.value = data.items || [];
-    store.books = books.value;
-    emit("booksFound", data.items);
+    store.books = []
+    for (let i = 0; i < data.items.length; i++) {
+      const element = data.items[i];
+      store.books.push({
+        id: element.id,
+        title: element.volumeInfo.title,
+        desc: element.volumeInfo.description,
+        authors: element.volumeInfo.authors,
+        image: element.volumeInfo.imageLinks.thumbnail,
+        categories: element.volumeInfo.categories
+      })
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }
