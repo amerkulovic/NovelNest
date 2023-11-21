@@ -10,7 +10,6 @@ import { useMyStore } from "./stores/store";
 const route = useRoute();
 const store = useMyStore();
 const isHomePage = ref(route.path === "/");
-console.log(isHomePage);
 
 watch(() => {
   isHomePage.value = route.path === "/";
@@ -20,7 +19,6 @@ const books = ref([]);
 
 function setBooks(foundBooks) {
   books.value = foundBooks;
-  console.log(store.books);
 }
 </script>
 
