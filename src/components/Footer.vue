@@ -22,7 +22,9 @@ const pictureArray = ref([bookShelf, library, papers, bookStack]);
         <router-link to="/about">
           <li class="pt-3">About</li>
         </router-link>
-        <li class="pt-3">Bookmarks</li>
+        <router-link to="/bookmarks">
+          <li class="pt-3">Bookmarks</li>
+        </router-link>
       </ul>
     </section>
     <img :src="owlSvg" class="h-20 w-20" />

@@ -9,13 +9,13 @@ export const useMyStore = defineStore("myStore", {
     books: [],
     selectedBook: {},
     bookmarks: [],
+    chosenBook: {}
   }),
   actions: {
     addBookmark(bookmark) {
       let bookmarkExists = false;
-      console.log(store.bookmarks);
       for (let i = 0; i < this.bookmarks.length; i++) {
-        if (bookmark.title === this.bookmarks[i].title) {
+        if (this.chosenBook.title === this.bookmarks[i].title) {
           let index = this.bookmarks.indexOf(this.bookmarks[i]);
           this.bookmarks.splice(index, 1);
           bookmarkExists = true;
@@ -25,6 +25,7 @@ export const useMyStore = defineStore("myStore", {
       if (!bookmarkExists) {
         this.bookmarks.push(bookmark);
       }
+      localStorage.setItem("bookmarks", JSON.stringify(this.bookmarks));
       console.log(this.bookmarks);
     },
   },

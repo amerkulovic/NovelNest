@@ -1,13 +1,9 @@
 <script setup>
 import { useMyStore } from "../stores/store";
 import bookmark from "../assets/bookmark.svg";
-import { reactive, ref } from "vue";
-// import { FontAwesomeIcon } from '@fortawesome/fontawesome-free';
-// import { faBookmark } from "@fortawesome/fontawesome-free";
+import { onMounted, ref } from "vue";
 const store = useMyStore();
-const book = store.selectedBook.volumeInfo;
-// const bookmarks = reactive([]);
-console.log(store.bookmarks);
+const book = ref(store.selectedBook.volumeInfo);
 </script>
 <template>
   <div class="bg-orange-200 flex items-center pb-10 max-xl:pt-20">
@@ -19,7 +15,7 @@ console.log(store.bookmarks);
       <section class="w-3/5 ml-5 flex flex-col justify-between z-10">
         <div>
           <h1 class="font-extrabold text-4xl py-2">{{ book.title }}</h1>
-          <h2 :v-if="book.subtitle" class="font-extralight text-3xl pb-2">{{ book.subtitle }}</h2>
+          <h2 v-if="book.subtitle" class="font-extralight text-3xl pb-2">{{ book.subtitle }}</h2>
           <p :key="category" v-for="category in book.categories" class="font-light text-xl py-1">{{ category }}</p>
           <p class="mt-8 font-bold">{{ book.description }}</p>
         </div>

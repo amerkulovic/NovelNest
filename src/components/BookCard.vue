@@ -4,7 +4,11 @@ const store = useMyStore();
 const props = defineProps(["image", "desc", "title", "author", "bookObject"]);
 
 const storeBookInfo = () => {
+  console.log(store.selectedBook.volumeInfo);
   store.selectedBook = props.bookObject;
+  store.chosenBook = {
+    title: store.selectedBook.volumeInfo.title
+  }
 };
 </script>
 <template>

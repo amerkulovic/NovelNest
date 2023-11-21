@@ -22,6 +22,14 @@ const searchBooks = async () => {
   try {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm.value}`);
     const data = await response.json();
+    for (let i = 0; i < data.items.length; i++) {
+      const element = data.items[i];
+      books.value.push({
+        title: element.title,
+        desc: element.desc
+      })
+      
+    }
     books.value = data.items || [];
     store.books = books.value;
     emit("booksFound", data.items);
@@ -37,7 +45,9 @@ const searchBooks = async () => {
     </h1>
     <img :src="owlSvg" class="w-[60px] max-md:hidden" />
     <ul class="flex flex-row justify-end items-center w-1/3">
-      <li class="mx-2"><img :src="bookSvg" class="h-10 w-10" /></li>
+      <router-link to="/bookmarks"
+        ><li class="mx-2"><img :src="bookSvg" class="h-10 w-10" /></li
+      ></router-link>
       <div v-if="!isHomePage" className="opacity-80 hover:opacity-100 flex items-center">
         <input className="h-12 w-4/6 px-4 rounded-tl-xl rounded-bl-xl focus:outline-none text-xl font-bold" placeholder="Find a Book!" v-model="searchTerm" />
         <router-link to="/search"
