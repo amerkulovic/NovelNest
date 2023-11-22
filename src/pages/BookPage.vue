@@ -4,6 +4,43 @@ import bookmark from "../assets/bookmark.svg";
 import { onMounted, ref } from "vue";
 const store = useMyStore();
 const book = ref(store.selectedBook);
+
+let bookmarks = ref([]);
+let isBookmarked = ref(false);
+
+const addBookmark = (bookmark) => {
+  let bookmarkExists = false;
+  for (let i = 0; i < store.bookmarks.length; i++) {
+    if (bookmark.title === store.bookmarks[i].title) {
+      let index = store.bookmarks.indexOf(store.bookmarks[i]);
+      isBookmarked.value = !isBookmarked.value;
+      store.bookmarks.splice(index, 1);
+      bookmarkExists = true;
+      break;
+    }
+  }
+  if (!bookmarkExists) {
+    store.bookmarks.push(bookmark);
+    isBookmarked.value = !isBookmarked.value;
+  }
+  localStorage.setItem("bookmarks", JSON.stringify(store.bookmarks));
+  console.log(store.bookmarks);
+};
+
+onMounted(() => {
+  if (localStorage.getItem("bookmarks")) {
+    bookmarks.value = JSON.parse(localStorage.getItem("bookmarks"));
+    for (let i = 0; i < bookmarks.value.length; i++) {
+      if (store.selectedBook.id === bookmarks.value[i].id) {
+        console.log("Found it :)");
+        isBookmarked.value = true;
+        console.log(isBookmarked.value);
+      } else {
+        console.log("Can't find it :(");
+      }
+    }
+  }
+});
 </script>
 <template>
   <div class="bg-orange-200 flex items-center pb-10 max-xl:pt-20">
@@ -22,7 +59,7 @@ const book = ref(store.selectedBook);
         <div class="flex flex-col my-5">
           <p>Written By:</p>
           <p :key="author" v-for="author in book.authors">{{ author }}</p>
-          <button @click="store.addBookmark(book)"><img :src="bookmark" class="h-8 w-8" /></button>
+          <button @click="addBookmark(book)"><font-awesome-icon icon="fa-solid fa-book-bookmark" class="flex h-8 w-8" :class="isBookmarked ? 'text-orange-700' : 'text-slate-400'" /></button>
         </div>
       </section>
     </div>

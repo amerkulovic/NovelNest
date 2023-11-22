@@ -10,6 +10,17 @@ import BookmarkPage from "./pages/BookmarkPage.vue";
 import App from "./App.vue";
 import "./styles/index.css";
 
+/* import the fontawesome core */
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import { faBookBookmark } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faBookBookmark);
+
 const routes = [
   { path: "/about", component: About },
   { path: "/search", component: SearchPage },
@@ -22,4 +33,4 @@ const router = createRouter({
   routes,
 });
 
-createApp(App).use(router).use(createPinia()).mount("#app");
+createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(createPinia()).mount("#app");
