@@ -44,8 +44,7 @@ const searchBooks = async () => {
         <p class="italic font-extralight pb-4">"The more that you read, the more things you will know. The more that you learn, the more places you'll go."</p>
         <span class="font-bold mr-5 max-md:mr-0">- Dr.Seuss</span>
       </section>
-
-      <div className="opacity-80 hover:opacity-100 flex items-center pt-20">
+      <div className="opacity-80 hover:opacity-100 flex items-center pt-20 max-sm:px-2">
         <input className="h-20 w-full px-4 rounded-tl-xl rounded-bl-xl focus:outline-none text-2xl font-bold" placeholder="Find a Book!" v-model="searchTerm" />
         <router-link to="/search"
           ><button className="bg-white p-4 h-20 rounded-tr-xl rounded-br-xl " @click="searchBooks">
