@@ -22,6 +22,7 @@ import { faBookBookmark } from "@fortawesome/free-solid-svg-icons";
 library.add(faBookBookmark);
 
 const routes = [
+  { path: "/", component: HomeScreen },
   { path: "/about", component: About },
   { path: "/search", component: SearchPage },
   { path: "/bookmarks", component: BookmarkPage },
