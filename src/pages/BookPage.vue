@@ -58,7 +58,7 @@ onMounted(() => {
         <div class="flex flex-col my-5">
           <p>Written By:</p>
           <p :key="author" v-for="author in book.authors">{{ author }}</p>
-          <button @click="addBookmark(book)"><font-awesome-icon icon="fa-solid fa-book-bookmark" class="flex h-8 w-8" :class="isBookmarked ? 'text-orange-700' : 'text-slate-400'" /></button>
+          <button @click="addBookmark(book)"><font-awesome-icon icon="fa-solid fa-book-bookmark" class="flex justify-start h-8 w-8" :class="isBookmarked ? 'text-orange-700' : 'text-slate-400'" /></button>
         </div>
       </section>
     </div>
