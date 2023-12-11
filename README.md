@@ -16,4 +16,4 @@ HTML
 
 ## Link
 
-[Novel Nest](https://amerkulovic.github.io/)
+[Novel Nest](https://amerkulovic.github.io/NovelNest)
