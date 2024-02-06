@@ -4,6 +4,7 @@ A website for a looking up your favorite books and reading more about them! You 
 ## Skills
 
 Vue\
+TypeScript\
 Router\
 Tailwinds CSS\
 JavaScript Logic\
