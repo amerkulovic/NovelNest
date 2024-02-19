@@ -10,7 +10,7 @@ const pictureArray = ref([bookShelf, library, papers, bookStack]);
 </script>
 <template>
   <div class="flex flex-row flex-wrap">
-    <img v-for="(picture, index) in pictureArray" :key="index" class="w-1/4 h-1/3 max-sm:w-1/2" :src="picture" />
+    <img v-for="(picture, index) in pictureArray" :key="index" class="w-1/4 h-1/3 max-sm:w-1/2 transition-height duration-300" :src="picture" />
   </div>
   <footer class="flex items-center justify-between pt-5 px-10">
     <section class="pt-10">

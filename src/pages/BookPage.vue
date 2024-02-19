@@ -45,7 +45,7 @@ onMounted(() => {
 <template>
   <div class="bg-orange-200 flex items-center pb-10 max-xl:pt-20 max-sm:pt-5">
     <div class="flex justify-center relative py-10 max-md:flex-col max-md:items-center">
-      <div class="bg-orange-300 h-[90%] w-[60%] absolute left-20 opacity-70 top-7 max-lg:w-full max-lg:left-0 max-lg:h-[95%]"></div>
+      <div class="bg-orange-300 h-[90%] w-[60%] absolute left-20 opacity-70 top-7 max-lg:w-full max-lg:left-0 max-lg:h-[95%] transition-height duration-300"></div>
       <div class="z-10 flex items-center">
         <img class="h-[403px] w-[268px] border-2 border-yellow-900 max-md:h-[353px]" :src="book.image" />
       </div>
